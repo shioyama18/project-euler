@@ -1,6 +1,0 @@
-[package]
-name = "p003_largest_prime_factor"
-version = "0.1.0"
-authors = ["Shion Yamashita <shioyama1118@gmail.com>"]
-
-[dependencies]
