@@ -41,9 +41,15 @@ impl Prime {
             if x * x > n {
                 prime_factors.push(n);
                 break;
-            } else if n % x == 0 {
+            }
+
+            while n % x == 0 {
                 n /= x;
                 prime_factors.push(x);
+            }
+
+            if n == 1 {
+                break;
             }
         }
 
