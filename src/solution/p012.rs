@@ -11,7 +11,7 @@ struct TriangularNumber {
 
 impl TriangularNumber {
     pub fn new() -> Self {
-        TriangularNumber { curr: 1, diff: 2 }
+        TriangularNumber { curr: 0, diff: 1 }
     }
 }
 
@@ -19,11 +19,10 @@ impl Iterator for TriangularNumber {
     type Item = usize;
 
     fn next(&mut self) -> Option<Self::Item> {
-        let curr = self.curr;
         self.curr = self.curr + self.diff;
         self.diff += 1;
 
-        Some(curr)
+        Some(self.curr)
     }
 }
 
