@@ -1,27 +1,48 @@
 // Highly divisible triangular number
 // https://projecteuler.net/problem=12
 
-pub fn solve(n: usize) -> usize {
-    let mut i = 1;
-    let mut c = 2;
+use crate::util::prime::Prime;
+use std::collections::HashMap;
 
-    loop {
-        if num_factors(i) > n {
-            break;
-        }
-        i += c;
-        c += 1;
+struct TriangularNumber {
+    curr: usize,
+    diff: usize,
+}
+
+impl TriangularNumber {
+    pub fn new() -> Self {
+        TriangularNumber { curr: 1, diff: 2 }
     }
+}
 
-    i
+impl Iterator for TriangularNumber {
+    type Item = usize;
+
+    fn next(&mut self) -> Option<Self::Item> {
+        let curr = self.curr;
+        self.curr = self.curr + self.diff;
+        self.diff += 1;
+
+        Some(curr)
+    }
+}
+
+pub fn solve(n: usize) -> usize {
+    let t = TriangularNumber::new();
+    t.skip_while(|&i| num_factors(i) <= n).next().unwrap()
 }
 
 fn num_factors(n: usize) -> usize {
-    (1..)
-        .take_while(|i| i * i <= n)
-        .filter(|i| n % i == 0)
-        .count()
-        * 2
+    let p = Prime::prime_factors(n);
+    let mut dict: HashMap<usize, usize> = HashMap::new();
+
+    p.iter().for_each(|&x| *dict.entry(x).or_insert(0) += 1);
+
+    for i in dict.values_mut() {
+        *i += 1;
+    }
+
+    dict.values().product()
 }
 
 #[cfg(test)]
