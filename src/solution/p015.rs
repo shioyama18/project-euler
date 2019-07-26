@@ -14,10 +14,11 @@ pub fn solve(n: usize) -> usize {
             answer *= n;
         }
 
-        loop {
-            match denominator.peek() {
-                Some(x) if answer % x == 0 => answer /= denominator.next().unwrap(),
-                _ => break,
+        while let Some(x) = denominator.peek() {
+            if answer % x == 0 {
+                answer /= denominator.next().unwrap();
+            } else {
+                break;
             }
         }
     }
