@@ -5,4 +5,6 @@ authors = ["Shion Yamashita <shioyama1118@gmail.com>"]
 edition = "2018"
 
 [dependencies]
+num-traits = "0.2"
+num-bigint = "0.2"
 
