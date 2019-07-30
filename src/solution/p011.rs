@@ -33,7 +33,7 @@ pub fn solve(grid: &str, len: usize) -> usize {
     // top 2 left diagonal
     lines.extend((0..width).map(|i| {
         let (x0, y0) = (i, 0);
-        (0..x0 + 1).map(|j| (x0 - j, y0 + j)).collect()
+        (0..=x0).map(|j| (x0 - j, y0 + j)).collect()
     }));
     // right 2 bottom diagonal
     lines.extend((0..height - 1).map(|i| {

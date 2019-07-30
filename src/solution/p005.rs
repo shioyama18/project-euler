@@ -13,7 +13,7 @@ pub fn solve(n: usize) -> usize {
             }
             x
         })
-        .fold(1, |acc, i| acc * i)
+        .product()
 }
 
 #[cfg(test)]

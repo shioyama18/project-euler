@@ -1,3 +1,4 @@
+#[derive(Default)]
 pub struct Fibonacci {
     curr: usize,
     next: usize,

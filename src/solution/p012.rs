@@ -19,7 +19,7 @@ impl Iterator for TriangularNumber {
     type Item = usize;
 
     fn next(&mut self) -> Option<Self::Item> {
-        self.curr = self.curr + self.diff;
+        self.curr += self.diff;
         self.diff += 1;
 
         Some(self.curr)

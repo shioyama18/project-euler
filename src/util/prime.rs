@@ -1,3 +1,4 @@
+#[derive(Default)]
 pub struct Prime {
     index: usize,
     primes: Vec<usize>,
@@ -34,10 +35,10 @@ impl Prime {
     }
 
     pub fn prime_factors(mut n: usize) -> Vec<usize> {
-        let mut p = Prime::new();
+        let p = Prime::new();
         let mut prime_factors = Vec::new();
 
-        while let Some(x) = p.next() {
+        for x in p {
             if x * x > n {
                 prime_factors.push(n);
                 break;
