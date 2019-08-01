@@ -56,6 +56,30 @@ impl Prime {
 
         prime_factors
     }
+
+    pub fn sum_divisor(n: usize) -> usize {
+        if n == 1 {
+            return 1;
+        }
+
+        use std::collections::HashMap;
+
+        let dict = {
+            let pf = Self::prime_factors(n);
+            let mut dict = HashMap::new();
+            pf.into_iter()
+                .for_each(|i| *dict.entry(i).or_insert(0) += 1);
+            dict
+        };
+
+        dict.into_iter()
+            .map(|(base, exp)| (base.pow(exp + 1) - 1) / (base - 1))
+            .product::<usize>()
+    }
+
+    pub fn sum_proper_divisor(n: usize) -> usize {
+        Self::sum_divisor(n) - n
+    }
 }
 
 impl Iterator for Prime {
