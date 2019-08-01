@@ -2,7 +2,6 @@
 // https://projecteuler.net/problem=21
 
 use crate::util::prime::Prime;
-use std::collections::HashMap;
 
 pub fn solve(n: usize) -> usize {
     (2..n)
