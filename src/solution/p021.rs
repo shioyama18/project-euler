@@ -1,19 +1,16 @@
 // Amicable numbers
 // https://projecteuler.net/problem=21
 
-// TODO: optimize
+use crate::util::prime::Prime;
+use std::collections::HashMap;
 
 pub fn solve(n: usize) -> usize {
     (2..n)
         .filter(|&i| {
-            let x = sum_divisor(i);
-            i == sum_divisor(x) && i != x
+            let x = Prime::sum_proper_divisor(i);
+            i != x && i == Prime::sum_proper_divisor(x)
         })
         .sum()
-}
-
-fn sum_divisor(n: usize) -> usize {
-    (1..n).filter(|x| n % x == 0).sum()
 }
 
 #[cfg(test)]
