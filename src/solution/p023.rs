@@ -1,5 +1,3 @@
-#[deny(missing_docs)]
-
 /// [Non-abundant sums](https://projecteuler.net/problem=23)
 ///
 /// A perfect number is a number for which the sum of its proper divisors is exactly equal

@@ -20,7 +20,7 @@ pub fn solve(mut n: usize) -> usize {
     let mut digits = vec![0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
     let mut result = Vec::new();
 
-    while digits.len() > 0 {
+    while !digits.is_empty() {
         let fact = factorial(digits.len() - 1);
         let quotient = n / fact;
         n %= fact;
