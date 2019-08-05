@@ -1,5 +1,4 @@
 #[deny(missing_docs)]
-
 /// [Lexicographic permutations](https://projecteuler.net/problem=24)
 ///
 /// A permutation is an ordered arrangement of objects. For example, 3124 is one possible

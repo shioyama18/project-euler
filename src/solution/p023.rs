@@ -1,3 +1,6 @@
+use crate::util::prime::Prime;
+
+#[deny(missing_docs)]
 /// [Non-abundant sums](https://projecteuler.net/problem=23)
 ///
 /// A perfect number is a number for which the sum of its proper divisors is exactly equal
@@ -22,8 +25,6 @@
 /// ```
 /// assert_eq!(project_euler::solution::p023::solve(28123), 4179871);
 /// ```
-use crate::util::prime::Prime;
-
 pub fn solve(n: usize) -> usize {
     let abunds = (2..=n)
         .filter(|&i| Prime::sum_proper_divisor(i) > i)
