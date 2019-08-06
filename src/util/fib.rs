@@ -1,23 +1,29 @@
+use num_traits::One;
+use std::ops::Add;
+
 #[derive(Default)]
-pub struct Fibonacci {
-    curr: usize,
-    next: usize,
+pub struct Fibonacci<T> {
+    curr: T,
+    next: T,
 }
 
-impl Fibonacci {
+impl<T: One> Fibonacci<T> {
     pub fn new() -> Self {
-        Fibonacci { curr: 1, next: 1 }
+        Fibonacci {
+            curr: One::one(),
+            next: One::one(),
+        }
     }
 }
 
-impl Iterator for Fibonacci {
-    type Item = usize;
+impl<T: Add<T, Output = T> + Clone> Iterator for Fibonacci<T> {
+    type Item = T;
 
-    fn next(&mut self) -> Option<usize> {
-        let new_next = self.curr + self.next;
-        self.curr = self.next;
-        self.next = new_next;
+    fn next(&mut self) -> Option<T> {
+        let new_next = self.curr.clone() + self.next.clone();
+        let new_curr = std::mem::replace(&mut self.next, new_next);
+        let curr = std::mem::replace(&mut self.curr, new_curr);
 
-        Some(self.curr)
+        Some(curr)
     }
 }

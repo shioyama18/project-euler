@@ -4,7 +4,7 @@
 use crate::util::fib::Fibonacci;
 
 pub fn solve(max: usize) -> usize {
-    let fib = Fibonacci::new();
+    let fib = Fibonacci::<usize>::new();
     fib.take_while(|&x| x < max).filter(|x| x % 2 == 0).sum()
 }
 
