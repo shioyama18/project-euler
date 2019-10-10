@@ -41,7 +41,7 @@ pub fn solve(n: usize) -> usize {
 
 fn decompose(x: usize, dict: &mut String) {
     match x {
-        0 => return,
+        0 => (),
         x if x < 20 => dict.push_str(ONE[x - 1]),
         x if x >= 20 && x < 100 => {
             dict.push_str(TY[first_digit(x) - 2]);
