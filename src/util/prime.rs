@@ -12,6 +12,11 @@ impl Prime {
         }
     }
 
+    pub fn upto(n: usize) -> Vec<usize> {
+        let primes = Self::new();
+        primes.into_iter().take_while(|&p| p < n).collect()
+    }
+
     fn expand(&mut self) {
         let mut curr = self.primes.last().unwrap() + 2;
 
