@@ -8,7 +8,7 @@ use crate::util::prime::Prime;
 ///
 /// # Example
 ///
-/// ```
+/// ```ignore
 /// assert_eq!(project_euler::solution::p035::solve(1_000_000), 55);
 /// ```
 pub fn solve(n: usize) -> usize {
