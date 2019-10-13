@@ -1,5 +1,3 @@
-use crate::util::prime::Prime;
-
 /// [Circular primes](https://projecteuler.net/problem=35)
 ///
 /// solve(n) returns number of circular primes below n.
@@ -16,7 +14,7 @@ pub fn solve(n: usize) -> usize {
         return 0;
     }
 
-    let primes = Prime::upto(n);
+    let primes = crate::util::prime::Prime::upto(n);
     let mut circular = vec![];
 
     for &p in &primes {
