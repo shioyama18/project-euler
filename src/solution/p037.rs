@@ -13,10 +13,10 @@ pub fn solve() -> usize {
 
     let mut count = 0;
     let mut sum = 0;
-    let mut prime_iter = Prime::new().skip_while(|&p| p <= 7);
+    let prime_iter = Prime::new().skip_while(|&p| p <= 7);
     let mut primes = vec![2, 3, 5, 7];
 
-    while let Some(p) = prime_iter.next() {
+    for p in prime_iter {
         if count == 11 {
             break;
         }

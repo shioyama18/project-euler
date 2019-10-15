@@ -11,7 +11,7 @@
 /// ```
 pub fn solve() -> usize {
     (9234..=9487)
-        .map(|x| 100002 * x)
+        .map(|x| 100_002 * x)
         .filter(|&x| is_pandigital(x))
         .max()
         .unwrap()

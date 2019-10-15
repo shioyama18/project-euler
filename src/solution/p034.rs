@@ -9,7 +9,7 @@
 /// assert_eq!(project_euler::solution::p034::solve(), 40730);
 /// ```
 pub fn solve() -> usize {
-    (3..=100000).filter(|&x| x == factorial_sum(x)).sum()
+    (3..=100_000).filter(|&x| x == factorial_sum(x)).sum()
 }
 
 fn factorial_sum(x: usize) -> usize {

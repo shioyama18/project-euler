@@ -16,7 +16,7 @@ pub fn solve() -> usize {
     let digits = IrrationalDecimal::new();
     let digits = std::iter::repeat(0)
         .take(1)
-        .chain(digits.into_iter().take(1_000_000))
+        .chain(digits.take(1_000_000))
         .collect::<Vec<_>>();
 
     digits[1]
@@ -24,8 +24,8 @@ pub fn solve() -> usize {
         * digits[100]
         * digits[1000]
         * digits[10000]
-        * digits[100000]
-        * digits[1000000]
+        * digits[100_000]
+        * digits[1_000_000]
 }
 
 struct IrrationalDecimal {
