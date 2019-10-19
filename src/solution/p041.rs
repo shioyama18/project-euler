@@ -4,7 +4,7 @@
 ///
 /// # Example
 ///
-/// ```
+/// ```ignore
 /// assert_eq!(project_euler::solution::p041::solve(), 7652413);
 /// ```
 pub fn solve() -> usize {
