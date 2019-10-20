@@ -14,8 +14,7 @@ pub fn solve() -> usize {
     for n in (4..).step_by(3) {
         pentagons.push(p);
 
-        for i in 0..pentagons.len() {
-            let p_i = pentagons[i];
+        for &p_i in &pentagons {
             let p_k = p - p_i;
             let d = if p_i > p_k { p_i - p_k } else { p_k - p_i };
 
